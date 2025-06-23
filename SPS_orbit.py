@@ -53,14 +53,14 @@ data_list = ["BPMALPS_1:Orbit:positions",
              "BPMALPS_4:Orbit:positions",
              "BPMALPS_5:Orbit:positions",
              "BPMALPS_6:Orbit:positions",
-             "BPMALPS_1:Orbit:channelNames"
+             "BPMALPS_1:Orbit:channelNames",
              "BPMALPS_2:Orbit:channelNames",
              "BPMALPS_3:Orbit:channelNames",
              "BPMALPS_4:Orbit:channelNames",
              "BPMALPS_5:Orbit:channelNames",
              "BPMALPS_6:Orbit:channelNames",]
-t0 = pd.Timestamp('2025-06-23 19:40:00',tz="CET")
-t1 = pd.Timestamp('2025-06-23 19:45:00',tz="CET")
+t0 = pd.Timestamp('2025-06-23 19:00:00',tz="CET")
+t1 = pd.Timestamp('2025-06-23 20:00:00',tz="CET")
 
 # %%
 aux = sk.get(t0, t1, data_list)
@@ -73,4 +73,41 @@ for ii in data_list:
         logging.info(f'Converted {ii} to numpy array')
 # %%
 aux['BPMALPS_6:Orbit:positions'].iloc[0][1]
+# %%
+test =np.reshape(np.transpose(
+    aux['BPMALPS_6:Orbit:positions'].iloc[0][0]
+    ),
+    aux['BPMALPS_6:Orbit:positions'].iloc[0][1])
+import matplotlib.pyplot as plt
+
+plt.plot(test[0,:], 'o')
+plt.plot(test[1,:], 'o')
+plt.plot(test[2,:], 'o')
+plt.plot(test[3,:], 'o')
+# %%
+# make a color map of test
+import matplotlib.cm as cm
+import matplotlib.colors as mcolors
+import matplotlib.pyplot as plt
+import numpy as np
+# Create a colormap
+# Create a normalization instance
+# Create a figure and axis
+plt.pcolormesh(test)
+# %%
+aux['BPMALPS_1:Orbit:channelNames'].iloc[0][0][2]
+# %%
+my_dict = {}
+
+ALPS = ['BPMALPS_1', 'BPMALPS_2', 'BPMALPS_3',
+        'BPMALPS_4', 'BPMALPS_5', 'BPMALPS_6']
+for ALPS in ALPS:
+    positions =np.reshape(np.transpose(
+        aux[f'{ALPS}:Orbit:positions'].iloc[0][0]
+        ),
+        aux[f'{ALPS}:Orbit:positions'].iloc[0][1])
+    for nn, channelName in enumerate(aux[f'{ALPS}:Orbit:channelNames'].iloc[0][0]):
+        print(f'Channel: {channelName}, nn: {nn}')
+        my_dict[channelName] =positions[nn,:]
+
 # %%
