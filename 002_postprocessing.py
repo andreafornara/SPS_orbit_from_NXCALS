@@ -40,7 +40,7 @@ from matplotlib import pyplot as plt
 samples = len(nxcals_df['SR.BMEAS-B-ST:SamplesFromTrigger:samples'].iloc[0][0])
 t = np.linspace(0, samples/1000, samples, endpoint=False)
 samples = len(BPM_df['BPH.63208.H'].iloc[0])
-ctime_inj_s = 1.185
+ctime_inj_s = 1.015
 tt = np.linspace(0+ctime_inj_s, samples/100+ctime_inj_s, samples, endpoint=False)
 plt.plot(tt, BPM_df['BPH.63208.H'].iloc[0],'o',alpha=.1, label='BPH.63208.H')
 
