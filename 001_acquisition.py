@@ -1,4 +1,4 @@
-# %% /home/sterbini/2025_05_22_nxcals_test/miniconda/bin/python
+# %% source /home/sterbini/2025_05_22_nxcals_test/miniconda/bin/activate
 import nx2pd as nx
 import pandas as pd
 from nxcals.spark_session_builder import get_or_create, Flavor
@@ -14,5 +14,9 @@ nxcals_df = sk.get(t0, t1, ['BPMALPS_%:Orbit:%',
                       'SPS%TGM:%',
                       'SPS.LSA:CYCLE',
                       'SR.BMEAS-B-ST:SamplesFromTrigger:samples'])
+my_filter = (nxcals_df['SPS.LSA:CYCLE'] == 'MD_CRAB_26_270_L8823_Q26_2025_V1')
+nxcals_df[my_filter].to_pickle('nxcals_data.pkl')
+# %%
+sk.get_variables('BPMALPS_%:%')
 
 # %%

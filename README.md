@@ -6,7 +6,7 @@ In the following we show how to retrieve the SPS closed orbit from NXCALS (from 
 
 We assume that you have access to pcbe-abp-hpc002 and you can source the python distribution 
 ``` bash
-source /home/sterbini/2025_05_22_nxcals_test/miniconda/bin/python
+source /home/sterbini/2025_05_22_nxcals_test/miniconda/bin/activate
 ```
 
 You can acquire 'BPMALPS_%:Orbit:%' by executing the 001_acquisition.py.
