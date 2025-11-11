@@ -20,7 +20,7 @@ CYCLE_NAME = 'MD_CRAB_26_270_L8823_Q26_2025_V1'
 
 # Or load from pickle file
 DATA_FILE = "df_all_Q26.pkl"
-USE_PICKLE = False  # Set False to use get_data() instead
+USE_PICKLE = True  # Set False to use get_data() instead
 
 # =============================================================================
 # TIME WINDOWS #-2 w.r.t. Timber (in Timber 10:56 is -180)
@@ -86,7 +86,7 @@ CC_OPTICS_Q26_H = [
         "label": "CC1",
         "s": 1184.5878,
         "beta": 29.755513884278752,  # H-plane beta [m]
-        "mu": 8.190695622776744 / (2*np.pi),  # H-plane phase [turns]
+        "mu": 8.190695622776744 / (2*np.pi),  # H-plane phase
     },
 ]
 
@@ -95,7 +95,7 @@ CC_OPTICS_Q26_V = [
         "label": "CC1",
         "s": 1184.5878,
         "beta": 78.90425201740106,  # V-plane beta [m]
-        "mu": 8.21949268189431 / (2*np.pi),  # V-plane phase [turns]
+        "mu": 8.21949268189431 / (2*np.pi),  # V-plane phase
     },
 ]
 
@@ -105,7 +105,7 @@ CC_OPTICS_Q20_H = [
         "label": "CC1",
         "s": 1184.5878,
         "beta": 41.49857653306058,  # H-plane beta [m]
-        "mu": 6.309963849369042 / (2*np.pi),  # H-plane phase [turns]
+        "mu": 6.309963849369042 / (2*np.pi),  # H-plane phase
     },
 ]
 
@@ -114,7 +114,7 @@ CC_OPTICS_Q20_V = [
         "label": "CC1",
         "s": 1184.5878,
         "beta": 83.6763468473442,  # V-plane beta [m]
-        "mu": 6.334214602764455 / (2*np.pi),  # V-plane phase [turns]
+        "mu": 6.334214602764455 / (2*np.pi),  # V-plane phase
     },
 ]
 
